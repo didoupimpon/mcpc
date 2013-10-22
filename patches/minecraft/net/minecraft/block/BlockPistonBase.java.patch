@@ -1,0 +1,29 @@
+--- ../src_base/minecraft/net/minecraft/block/BlockPistonBase.java
++++ ../src_work/minecraft/net/minecraft/block/BlockPistonBase.java
+@@ -426,7 +426,7 @@
+                 return false;
+             }
+ 
+-            return !(Block.blocksList[par0] instanceof ITileEntityProvider);
++            return !par1World.blockHasTileEntity(par2, par3, par4);
+         }
+     }
+ 
+@@ -444,7 +444,7 @@
+         {
+             if (l1 < 13)
+             {
+-                if (j1 <= 0 || j1 >= 255)
++                if (j1 <= 0 || j1 >= par0World.getHeight() - 1)
+                 {
+                     return false;
+                 }
+@@ -494,7 +494,7 @@
+ 
+             if (l1 < 13)
+             {
+-                if (j1 <= 0 || j1 >= 255)
++                if (j1 <= 0 || j1 >= par1World.getHeight() - 1)
+                 {
+                     return false;
+                 }
